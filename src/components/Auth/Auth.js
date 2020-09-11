@@ -2,13 +2,23 @@ import React, {useState} from 'react';
 import './Auth.css'
 
 const Auth = (props) => {
-    const [signup, setSignup] = useState(true);
+    const [signIn, setSignIn] = useState(true)
     const [firstName, setFirstName] = useState('First Name');
     const [lastName, setLastName] = useState('Last Name');
     const [email, setEmail] = useState('Email');
     const [password, setPassword] = useState('Password');
 
-    const signupInfo = () => signup ? (
+    const signInToggle = (event) => {
+        event.preventDefault();
+
+        setSignIn(!signIn);
+
+        setEmail('')
+        setPassword('')
+        setFirstName('')
+        setLastName('')
+    }
+    const signupFields = () => !signIn ? (
         <div>
             <label htmlFor="firstName">First Name:</label>
             <br />
@@ -24,7 +34,7 @@ const Auth = (props) => {
 
     const userFunction = (event) => {
         event.preventDefault();
-        let url = 'http://localhost:3000/user/signup'
+        let url = signIn ? 'http://localhost:3000/user/signin' : 'Http://localhost:3000/user/signup'
         let userObject = {
             fName: firstName,
             lName: lastName,
@@ -45,7 +55,7 @@ const Auth = (props) => {
     return (
         <div>
             <form onSubmit={userFunction}>
-                {signupInfo()}
+                {signupFields()}
                 <label htmlFor="email">Email:</label>
             <br />
             <input type = "text" id="id" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
@@ -53,6 +63,9 @@ const Auth = (props) => {
             <label htmlFor="password">Password:</label>
             <br />
             <input type = "text" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/>
+            <br />
+            {signIn ? 
+            <button onClick={signInToggle}>Don't have an account yet? Click here to register</button> : null}
             <br />
             <button type="submit">Submit User Data</button>
             </form>
