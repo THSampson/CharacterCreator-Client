@@ -49,7 +49,7 @@ const Auth = (props) => {
             body: JSON.stringify(userObject)
         })
         .then(res => res.json())
-        .then(json => {console.log(json); props.setSessionToken(json.sessionToken)})
+        .then(json => {console.log(json); props.updateToken(json.sessionToken)})
         .catch(err => console.log(err))
     }
     return (
