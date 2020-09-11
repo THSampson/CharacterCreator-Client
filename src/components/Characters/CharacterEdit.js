@@ -24,7 +24,7 @@ const CharacterEdit = (props) => {
         })
     }
     return (
-        <Modal isOpen={true}>
+        <Modal isOpen={true} style={{backgroundColor: '#909090' }}>
                <ModalHeader>Create a Character</ModalHeader>
                <ModalBody>
             <Form onSubmit={characterUpdate}>

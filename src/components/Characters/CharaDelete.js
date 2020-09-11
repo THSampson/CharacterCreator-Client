@@ -10,7 +10,7 @@ const CharaDelete = (props) => {
                 'Authorization': this.props.Auth.sessionToken
             })
         })
-        .then(() => props.fetchCharacters())
+        .then(() => props.fetchCharacter())
     }
     
     const characterMapper = () => {
