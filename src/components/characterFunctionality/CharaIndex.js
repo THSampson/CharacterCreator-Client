@@ -14,7 +14,7 @@ const CharaIndex = (props) => {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        // "Authorization": props.token,
+        "Authorization": props.token,
       }),
     })
       .then((response) => response.json())
@@ -43,24 +43,16 @@ const CharaIndex = (props) => {
   return (
     <Container>
       <Row>
-        <Col md="4">
+        <Col md="2">
           <CharaCreate fetchCharacters={fetchCharacters} token={props.token} />
         </Col>
-        <Col md="4">
+        <Col md="10">
           <CharaTable
-            chara={chara}
-            editUpdateChara={editUpdateChara}
-            updateOn={updateOn}
-            fetchCharacters={fetchCharacters}
-            token={props.token}
+            chara={chara} editUpdateChara={editUpdateChara}  updateOn={updateOn} fetchCharacters={fetchCharacters} token={props.token}
           />
         </Col>
         {updateActive ? (
-          <CharaEdit
-            charaToUpdate={charaToUpdate}
-            updateOff={updateOff}
-            token={props.token}
-            fetchCharacters={fetchCharacters}
+          <CharaEdit charaToUpdate={charaToUpdate} updateOff={updateOff} token={props.token} fetchCharacters={fetchCharacters}
           />
         ) : (
           <></>
