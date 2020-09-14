@@ -8,15 +8,11 @@ const Auth = (props) => {
     const [lastName, setLastName] = useState('Last Name');
     const [email, setEmail] = useState('Email');
     const [password, setPassword] = useState('Password');
-    const [showAlert, setShowAlert] = useState(false);
-    const [disableSubmit, setDisableSubmit] = useState(false);
 
     const signInToggle = (event) => {
         event.preventDefault();
 
-        console.log(disableSubmit);
         setSignIn(!signIn);
-        setShowAlert(!showAlert)
 
         setEmail('')
         setPassword('')
@@ -35,8 +31,6 @@ const Auth = (props) => {
         </div>
     )  : null
         
-    const hideAlert = () => setShowAlert(false);
-
     const userFunction = (event) => {
         event.preventDefault();
         let url = signIn ? 'http://localhost:3000/user/signin' : 'http://localhost:3000/user/signup'
