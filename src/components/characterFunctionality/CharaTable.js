@@ -2,20 +2,20 @@ import React from 'react';
 import {Table, Button} from 'reactstrap'
 
 const CharaTable = (props) => {
-    const charaMapper = () => {
+    
+    const charaMapper = () => { 
         return props.chara.map((chara, index) => {
             return(
                 <tr key={index}>
-                    <th scope="row">{chara.id}</th>
                     <td>{chara.name}</td>
                     <td>{chara.species}</td>
-                    <td>{chara.age}</td>
+                    <td>{chara.ageInYears}</td>
                     <td>{chara.description}</td>
                 </tr>
 
             )
         })
-    }
+    };
 
 return (
     <>
