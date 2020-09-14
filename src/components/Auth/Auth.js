@@ -38,7 +38,7 @@ const Auth = (props) => {
 
     const userFunction = (event) => {
         event.preventDefault();
-        let url = signIn ? 'http://localhost:3000/user/signin' : 'Http://localhost:3000/user/signup'
+        let url = signIn ? 'http://localhost:3000/user/signin' : 'http://localhost:3000/user/signup'
         let userObject = {
             fName: firstName,
             lName: lastName,
@@ -47,10 +47,10 @@ const Auth = (props) => {
         };
         fetch(url, {
             method: 'POST',
+            body: JSON.stringify(userObject),
             headers: new Headers({
                 'Content-Type': 'application/json'
-            }),
-            body: JSON.stringify(userObject)
+            })
         })
         .then(res => res.json())
         .then(json => {console.log(json); props.updateToken(json.sessionToken)})
@@ -67,7 +67,7 @@ const Auth = (props) => {
             <br />
             <Label htmlFor="password">Password:</Label>
             <br />
-            <Input type = "text" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/>
+            <Input type = "password" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/>
             <br />
             {signIn ? 
             <Button onClick={signInToggle}>Don't have an account yet? Click here to register</Button> : null}

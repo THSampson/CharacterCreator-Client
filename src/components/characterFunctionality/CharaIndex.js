@@ -44,7 +44,7 @@ const CharaIndex = (props) => {
   return (
     <Container>
       <Row>
-        <Col md="4">
+        <Col md="2">
           <CharaCreate fetchCharacters={fetchCharacters} token={props.token} />
         </Col>
         <Col md="8">
