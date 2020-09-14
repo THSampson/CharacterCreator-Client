@@ -9,7 +9,6 @@ const Auth = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-
     const signInToggle = (event) => {
         event.preventDefault();
 
@@ -34,8 +33,6 @@ const Auth = (props) => {
         </div>
     )  : null
         
-    
-
     const userFunction = (event) => {
         event.preventDefault();
         let url = signIn ? 'http://localhost:3000/user/signin' : 'http://localhost:3000/user/signup'
@@ -58,7 +55,6 @@ const Auth = (props) => {
     }
     return (
         <div>
-
             <Form onSubmit={userFunction}>
                 {signupFields()}
             <Label htmlFor="email">Email:</Label>
@@ -69,10 +65,16 @@ const Auth = (props) => {
             <br />
             <Input type = "password" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/>
             <br />
+            <div id="passValid">
+            {!signIn ? 
+            password.length < 5 ? ('passwords must be at least 5 characters') : (null) 
+            : null
+            }
+            </div>
             {signIn ? 
             <Button onClick={signInToggle}>Don't have an account yet? Click here to register</Button> : null}
             <br />
-            <Button type="submit">Submit User Data</Button>
+            <Button type="submit" disabled={password.length < 5 ? true : false}>{signIn ? 'Sign In' : 'Create Account'}</Button>
             </Form>
         </div>
     )
