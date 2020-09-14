@@ -1,33 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 
-const CharacterEdit = (props) => {
-    const [editName, setEditName]=  useState(props.characterUpdate.name);
-    const [editSpecies, setEditSpecies]=  useState(props.characterUpdate.species);
-    const [editAge, setEditAge]=  useState(props.characterUpdate.age);
-    const [editDescription, setEditDescription]=  useState(props.characterUpdate.description);
+const CharaEdit = (props) => {
+    const [editName, setEditName]=  useState(props.charaToUpdate.name);
+    const [editSpecies, setEditSpecies]=  useState(props.charaToUpdate.species);
+    const [editAge, setEditAge]=  useState(props.charaToUpdate.ageInYears);
+    const [editDescription, setEditDescription]=  useState(props.charaToUpdate.description);
      
-    const characterUpdate= (event, character) => {
+    const charaUpdate= (event) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/chara/${character.id}`, {
+        fetch(`http://localhost:3000/chara/${props.charaToUpdate.id}`, {
             method: 'PUT',
-            body: JSON.stringify({character: character}),
+            body: JSON.stringify({name: editName, species: editSpecies, ageInYears: editAge, description: editDescription}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.Auth.sessionToken
+                'Authorization': props.token
             })
         })
-        .then((res) => {
-            this.setState({updatePressed: false})
-            this.fetchCharacters();
+        .then((response) => {
+            props.fetchCharacters();
+            props.updateOff();
         })
+
     }
     return (
         <Modal isOpen={true}>
                <ModalHeader>Create a Character</ModalHeader>
                <ModalBody>
-            <Form onSubmit={characterUpdate}>
+            <Form onSubmit={charaUpdate}>
                 <FormGroup>
                     <Label htmlFor="name"> Edit Name: </Label>
                     <Input name="name" value={editName} onChange={(e) => setEditName(e.target.value)} />
@@ -51,4 +52,4 @@ const CharacterEdit = (props) => {
     )
 }
 
-export default CharacterEdit;
+export default CharaEdit;
