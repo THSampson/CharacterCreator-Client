@@ -32,6 +32,7 @@ function App() {
     : <Auth updateToken={updateToken}/>)
 
   }
+
   return (
     <div className="App">
       <div className="mainDiv">
