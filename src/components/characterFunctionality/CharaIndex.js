@@ -5,16 +5,17 @@ import CharaTable from "./CharaTable.js";
 import CharaEdit from "./CharaEdit";
 
 const CharaIndex = (props) => {
+  console.log(props);
   const [chara, setChara] = useState([]);
   const [updateActive, setUpdateActive] = useState(false);
   const [charaToUpdate, setCharaToUpdate] = useState({});
 
   const fetchCharacters = () => {
     fetch('http://localhost:3000/chara', {
-      method: "GET",
+      method: 'GET',
       headers: new Headers({
-        "Content-Type": "application/json",
-        "Authorization": props.token,
+        'Content-Type': 'application/json',
+        'authorization': props.token,
       }),
     })
       .then((response) => response.json())
@@ -46,17 +47,24 @@ const CharaIndex = (props) => {
         <Col md="2">
           <CharaCreate fetchCharacters={fetchCharacters} token={props.token} />
         </Col>
-        <Col md="10">
+        <Col md="8">
+          {(chara.length) ? 
           <CharaTable
-            chara={chara} editUpdateChara={editUpdateChara}  updateOn={updateOn} fetchCharacters={fetchCharacters} token={props.token}
-          />
+            chara={chara}
+            editUpdateChara={editUpdateChara}
+            updateOn={updateOn}
+            fetchCharacters={fetchCharacters}
+            token={props.token}
+          /> : <h1>Create a New Character</h1>}
         </Col>
-        {updateActive ? (
-          <CharaEdit charaToUpdate={charaToUpdate} updateOff={updateOff} token={props.token} fetchCharacters={fetchCharacters}
+        {updateActive ? 
+          <CharaEdit
+            charaToUpdate={charaToUpdate}
+            updateOff={updateOff}
+            token={props.token}
+            fetchCharacters={fetchCharacters}
           />
-        ) : (
-          <></>
-        )}
+        : <div></div>}
       </Row>
     </Container>
   );

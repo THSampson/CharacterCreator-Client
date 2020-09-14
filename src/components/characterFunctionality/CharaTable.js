@@ -12,8 +12,7 @@ const CharaTable = (props) => {
         })
         .then(() => props.fetchCharacters())
     }
-    
-    const charaMapper = () => {
+    const charaMapper = () => { 
         return props.chara.map((chara, index) => {
             return(
                 <tr key={index}>
@@ -26,10 +25,9 @@ const CharaTable = (props) => {
                         <Button color="danger" onClick={() => {deleteCharacter(chara)}}>Delete</Button>
                     </td>
                 </tr>
-
             )
         })
-    }
+    };
 
 return (
     <>

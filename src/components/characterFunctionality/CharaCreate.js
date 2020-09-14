@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 const CharaCreate = (props) => {
+    console.log(props);
     const [name, setName] = useState('');
     const [species, setSpecies] = useState('');
     const [age, setAge] = useState('');
@@ -22,7 +23,7 @@ const CharaCreate = (props) => {
         body: JSON.stringify(charaObject),
         headers: new Headers({
         'Content-Type': 'application/json', 
-        'Authorization': props.token
+        'authorization': props.token
         })
     })
     .then(response => response.json())
@@ -31,12 +32,12 @@ const CharaCreate = (props) => {
     setName('')
     setSpecies('')
     setAge('')
-    setDescription('')
+    setDescription('');
     props.fetchCharacters();
     })
     }
 return(
-    <>
+    <div>
     <h3>Create A New Character</h3>
     <Form onSubmit={handleSubmit}>
     <FormGroup>
@@ -57,7 +58,7 @@ return(
     </FormGroup>
     <Button type="submit">Click to Submit Character</Button>
     </Form>
-    </>
+    </div>
   
 )
 
