@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Button} from 'reactstrap';
 import './Auth.css'
 
 const Auth = (props) => {
@@ -7,11 +8,15 @@ const Auth = (props) => {
     const [lastName, setLastName] = useState('Last Name');
     const [email, setEmail] = useState('Email');
     const [password, setPassword] = useState('Password');
+    const [showAlert, setShowAlert] = useState(false);
+    const [disableSubmit, setDisableSubmit] = useState(false);
 
     const signInToggle = (event) => {
         event.preventDefault();
 
+        console.log(disableSubmit);
         setSignIn(!signIn);
+        setShowAlert(!showAlert)
 
         setEmail('')
         setPassword('')
@@ -30,11 +35,11 @@ const Auth = (props) => {
         </div>
     )  : null
         
-    
+    const hideAlert = () => setShowAlert(false);
 
     const userFunction = (event) => {
         event.preventDefault();
-        let url = signIn ? 'http://localhost:3000/user/signin' : 'Http://localhost:3000/user/signup'
+        let url = signIn ? 'http://localhost:3000/user/signin' : 'http://localhost:3000/user/signup'
         let userObject = {
             fName: firstName,
             lName: lastName,
@@ -64,10 +69,16 @@ const Auth = (props) => {
             <br />
             <input type = "text" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/>
             <br />
+            <div id="passValid">
+            {!signIn ? 
+            password.length < 5 ? ('passwords must be at least 5 characters') : (null) 
+            : null
+            }
+            </div>
             {signIn ? 
-            <button onClick={signInToggle}>Don't have an account yet? Click here to register</button> : null}
+            <Button onClick={signInToggle}>Don't have an account yet? Click here to register</Button> : null}
             <br />
-            <button type="submit">Submit User Data</button>
+            <Button type="submit" disabled={password.length < 5 ? true : false}>{signIn ? 'Sign In' : 'Create Account'}</Button>
             </form>
         </div>
     )

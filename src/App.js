@@ -11,6 +11,7 @@ function App() {
   const viewToggle = () => {
     return sessionToken ? <h1>You got a session token!</h1> : <Auth setSessionToken={setSessionToken}/>
   }
+
   return (
     <div className="App">
       <div className="mainDiv">
