@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Modal,ModalHeader, ModalBody} from 'reactstrap';
 
 const CharaCreate = (props) => {
-    console.log(props);
     const [name, setName] = useState('');
     const [species, setSpecies] = useState('');
     const [age, setAge] = useState('');
     const [description, setDescription] = useState('');
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,27 +18,31 @@ const CharaCreate = (props) => {
         }
     
 
-    fetch('http://localhost:3000/chara', {
-        method: 'POST',
-        body: JSON.stringify(charaObject),
-        headers: new Headers({
-        'Content-Type': 'application/json', 
-        'authorization': props.token
+        fetch('http://localhost:3000/chara', {
+            method: 'POST',
+            body: JSON.stringify(charaObject),
+            headers: new Headers({
+            'Content-Type': 'application/json', 
+            'authorization': props.token
+            })
         })
-    })
-    .then(response => response.json())
-    .then((charaData) => {
-    console.log(charaData);
-    setName('')
-    setSpecies('')
-    setAge('')
-    setDescription('');
-    props.fetchCharacters();
-    })
+        .then(response => response.json())
+        .then((charaData) => {
+        setName('')
+        setSpecies('')
+        setAge('')
+        setDescription('');
+        props.fetchCharacters();
+
+        })
+
     }
+
 return(
-    <div>
-    <h3>Create A New Character</h3>
+    <Modal isOpen={props.modal}>
+    <ModalHeader toggle={props.createToggle} charCode="X">Create A New Character</ModalHeader>
+    <ModalBody>
+
     <Form onSubmit={handleSubmit}>
     <FormGroup>
     <Label htmlFor="name"/>
@@ -56,9 +60,11 @@ return(
     <Label htmlFor="description"/>
     <Input name="description" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
     </FormGroup>
-    <Button color="outline-success"  type="submit">Click to Submit Character</Button>
+    <Button color="outline-success"  type="submit" onClick={props.createToggle}>Create </Button>
     </Form>
-    </div>
+    </ModalBody>
+    </Modal>
+   
   
 )
 

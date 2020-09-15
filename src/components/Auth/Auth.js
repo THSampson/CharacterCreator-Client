@@ -22,13 +22,13 @@ const Auth = (props) => {
     const signupFields = () => !signIn ? (
         <div>
             <Form>
-            <Label htmlFor="firstName">First Name:</Label>
+            <Label size="lg" htmlFor="firstName" style={{fontWeight: "bold"}}>First Name:</Label>
             <br />
-            <Input type = "text" id="firstName" placeholder="First Name" value={firstName} onChange={e => setFirstName(e.target.value)}/>
+            <Input size="lg" type = "text" id="firstName" placeholder="First Name" value={firstName} onChange={e => setFirstName(e.target.value)} style={{fontWeight: "bold"}}/>
             <br />
-            <Label htmlFor="lastName">Last Name:</Label>
+            <Label size="lg" htmlFor="lastName" style={{fontWeight: "bold"}}>Last Name:</Label>
             <br />
-            <Input type = "text" id="lastName" placeholder="Last Name" value={lastName} onChange={e => setLastName(e.target.value)}/>
+            <Input size="lg" type = "text" id="lastName" placeholder="Last Name" value={lastName} onChange={e => setLastName(e.target.value)} style={{fontWeight: "bold"}}/>
        </Form>
         </div>
     )  : null
@@ -54,16 +54,16 @@ const Auth = (props) => {
         .catch(err => console.log(err))
     }
     return (
-        <div>
+        <div className="div">
             <Form onSubmit={userFunction}>
                 {signupFields()}
-            <Label htmlFor="email">Email:</Label>
+            <Label htmlFor="email" style={{fontWeight: "bold"}}>Email:</Label>
             <br />
-            <Input type = "text" id="id" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
+            <Input size="lg"  type = "text" id="id" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={{fontWeight: "bold"}}/>
             <br />
-            <Label htmlFor="password">Password:</Label>
+            <Label htmlFor="password" style={{fontWeight: "bold"}}>Password:</Label>
             <br />
-            <Input type = "password" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/>
+            <Input size="lg" type = "password" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)} style={{fontWeight: "bold"}}/>
             <br />
             <div id="passValid">
             {!signIn ? 
@@ -72,9 +72,9 @@ const Auth = (props) => {
             }
             </div>
             {signIn ? 
-            <Button onClick={signInToggle}>Don't have an account yet? Click here to register</Button> : null}
+            <Button onClick={signInToggle} color="outline-dark">Don't have an account yet? Click here to register</Button> : null}
             <br />
-            <Button type="submit" disabled={password.length < 5 ? true : false}>{signIn ? 'Sign In' : 'Create Account'}</Button>
+            <Button type="submit" disabled={password.length < 5 ? true : false} color="success">{signIn ? 'Sign In' : 'Create Account'}</Button>
             </Form>
         </div>
     )

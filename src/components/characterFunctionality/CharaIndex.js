@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 import CharaCreate from "./CharaCreate";
 import CharaTable from "./CharaTable.js";
 import CharaEdit from "./CharaEdit";
 
 const CharaIndex = (props) => {
-  console.log(props);
   const [chara, setChara] = useState([]);
+  const [createActive, setCreateActive] = useState(false);
   const [updateActive, setUpdateActive] = useState(false);
   const [charaToUpdate, setCharaToUpdate] = useState({});
+  const [modal, setModal] = useState(false);
+
 
   const fetchCharacters = () => {
     fetch('http://localhost:3000/chara', {
@@ -26,15 +28,16 @@ const CharaIndex = (props) => {
 
   const editUpdateChara = (chara) => {
     setCharaToUpdate(chara);
-    console.log(chara);
   };
 
-  const updateOn = () => {
-    setUpdateActive(true);
+  const updateToggle = () => {
+    setUpdateActive(!updateActive);
   };
 
-  const updateOff = () => {
-    setUpdateActive(false);
+  
+  const createToggle = () => {
+    setCreateActive(!createActive);
+    setModal(!modal)
   };
 
   useEffect(() => {
@@ -42,28 +45,29 @@ const CharaIndex = (props) => {
   }, []);
 
   return (
-
-
-    
     <Container>
       <Row>
+        <Button onClick={createToggle}color="outline-primary" >Create Character</Button>
         <Col md="2">
-          <CharaCreate fetchCharacters={fetchCharacters} token={props.token} />
+          { createActive ? 
+          <CharaCreate fetchCharacters={fetchCharacters} token={props.token} createToggle={createToggle} modal={modal} />
+         : <div></div> } 
         </Col>
         <Col md="8">
           {(chara.length) ? 
           <CharaTable
             chara={chara}
             editUpdateChara={editUpdateChara}
-            updateOn={updateOn}
+            updateToggle={updateToggle}
             fetchCharacters={fetchCharacters}
             token={props.token}
           /> : <h1>Create a New Character</h1>}
         </Col>
         {updateActive ? 
           <CharaEdit
+            updateToggle= {updateToggle}
+            updateActive= {updateActive}
             charaToUpdate={charaToUpdate}
-            updateOff={updateOff}
             token={props.token}
             fetchCharacters={fetchCharacters}
           />

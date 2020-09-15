@@ -6,3 +6,8 @@
 Button {
     margin: 5px;
 }
+.div{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 3px;
+}

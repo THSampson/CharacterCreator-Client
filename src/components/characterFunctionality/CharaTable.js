@@ -21,7 +21,7 @@ const CharaTable = (props) => {
                     <td>{chara.ageInYears}</td>
                     <td>{chara.description}</td>
                     <td>
-                        <Button color="outline-success"  onClick={() => {props.editUpdateChara(chara); props.updateOn()}}>Update</Button>
+                        <Button color="outline-success"  onClick={() => {props.editUpdateChara(chara); props.updateToggle()}}>Update</Button>
                         <Button color="outline-danger" onClick={() => {deleteCharacter(chara)}}>Delete</Button>
                     </td>
                 </tr>
@@ -33,7 +33,7 @@ return (
     <>
     <h3>Characters</h3>
     <hr />
-    <Table striped>
+    <Table striped bordered hover size="sm">
         <thead>
             <tr>
                 <th>Name</th>
