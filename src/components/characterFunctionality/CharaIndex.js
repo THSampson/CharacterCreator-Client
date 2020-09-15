@@ -42,6 +42,9 @@ const CharaIndex = (props) => {
   }, []);
 
   return (
+
+
+    
     <Container>
       <Row>
         <Col md="2">

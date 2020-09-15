@@ -56,7 +56,7 @@ return(
     <Label htmlFor="description"/>
     <Input name="description" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
     </FormGroup>
-    <Button type="submit">Click to Submit Character</Button>
+    <Button color="outline-success"  type="submit">Click to Submit Character</Button>
     </Form>
     </div>
   

@@ -21,8 +21,8 @@ const CharaTable = (props) => {
                     <td>{chara.ageInYears}</td>
                     <td>{chara.description}</td>
                     <td>
-                        <Button color="warning" onClick={() => {props.editUpdateChara(chara); props.updateOn()}}>Update</Button>
-                        <Button color="danger" onClick={() => {deleteCharacter(chara)}}>Delete</Button>
+                        <Button color="outline-success"  onClick={() => {props.editUpdateChara(chara); props.updateOn()}}>Update</Button>
+                        <Button color="outline-danger" onClick={() => {deleteCharacter(chara)}}>Delete</Button>
                     </td>
                 </tr>
             )
