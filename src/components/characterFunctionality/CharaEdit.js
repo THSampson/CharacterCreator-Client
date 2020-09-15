@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
-
+import APIURL from '../../helpers/environment';
 
 const CharaEdit = (props) => {
     const [editName, setEditName]=  useState(props.charaToUpdate.name);
@@ -10,7 +10,7 @@ const CharaEdit = (props) => {
      
     const charaUpdate= (event) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/chara/${props.charaToUpdate.id}`, {
+        fetch(`${APIURL}/chara/${props.charaToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({name: editName, species: editSpecies, ageInYears: editAge, description: editDescription}),
             headers: new Headers({

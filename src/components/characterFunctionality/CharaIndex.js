@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
+import APIURL from '../../helpers/environment';
 import CharaCreate from "./CharaCreate";
 import CharaTable from "./CharaTable.js";
 import CharaEdit from "./CharaEdit";
@@ -11,7 +12,7 @@ const CharaIndex = (props) => {
   const [charaToUpdate, setCharaToUpdate] = useState({});
 
   const fetchCharacters = () => {
-    fetch('http://localhost:3000/chara', {
+    fetch(`${APIURL}/chara`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',

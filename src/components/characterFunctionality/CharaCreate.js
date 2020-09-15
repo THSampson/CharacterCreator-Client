@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 const CharaCreate = (props) => {
     console.log(props);
@@ -18,7 +19,7 @@ const CharaCreate = (props) => {
         }
     
 
-    fetch('http://localhost:3000/chara', {
+    fetch(`${APIURL}/chara`, {
         method: 'POST',
         body: JSON.stringify(charaObject),
         headers: new Headers({
