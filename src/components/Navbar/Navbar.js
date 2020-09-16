@@ -8,7 +8,6 @@ const NavbarComponent = (props) => {
         event.preventDefault();
         props.createToggle();
     }
-
     return (
         <div>
             <Navbar color="light" light expand="md">
@@ -24,5 +23,4 @@ const NavbarComponent = (props) => {
         </div>
     )
 }
-
 export default NavbarComponent

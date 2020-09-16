@@ -5,8 +5,6 @@ import Auth from './components/Auth/Auth';
 import CharaIndex from './components/characterFunctionality/CharaIndex';
 import Navbar from './components/Navbar/Navbar'
 
-
-
 function App() {
   const [sessionToken, setSessionToken] = useState('');
 

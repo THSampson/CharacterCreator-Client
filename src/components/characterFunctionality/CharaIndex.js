@@ -7,12 +7,12 @@ import CharaEdit from "./CharaEdit";
 import NavbarComponent from '../Navbar/Navbar'
 
 const CharaIndex = (props) => {
-  console.log(props);
   const [chara, setChara] = useState([]);
+  const [createActive, setCreateActive] = useState(false);
   const [updateActive, setUpdateActive] = useState(false);
   const [createActive, setCreateActive] = useState(false);
   const [charaToUpdate, setCharaToUpdate] = useState({});
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
 
   const fetchCharacters = () => {
     fetch(`http://localhost:3000/chara`, {
@@ -49,6 +49,7 @@ const CharaIndex = (props) => {
     <Container>
       <NavbarComponent token={props.token} setSessionToken={props.setSessionToken} createToggle={createToggle}/>
       <Row>
+        <Button onClick={createToggle}color="outline-dark" className="create">Create Character</Button>
         <Col md="2">
           {createActive ? 
           <CharaCreate fetchCharacters={fetchCharacters} token={props.token} createToggle={createToggle} modal={modal}/> : null
@@ -66,9 +67,9 @@ const CharaIndex = (props) => {
         </Col>
         {updateActive ? 
           <CharaEdit
+            updateToggle= {updateToggle}
+            updateActive= {updateActive}
             charaToUpdate={charaToUpdate}
-            updateActive={updateActive}
-            updateToggle={updateToggle}
             token={props.token}
             fetchCharacters={fetchCharacters}
           />
