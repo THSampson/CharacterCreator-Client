@@ -5,6 +5,8 @@ import CharaCreate from "./CharaCreate";
 import CharaTable from "./CharaTable.js";
 import CharaEdit from "./CharaEdit";
 
+
+
 const CharaIndex = (props) => {
   console.log(props);
   const [chara, setChara] = useState([]);
@@ -43,6 +45,7 @@ const CharaIndex = (props) => {
   }, []);
 
   return (
+    <>
     <Container>
       <Row>
         <Col md="2">
@@ -68,6 +71,7 @@ const CharaIndex = (props) => {
         : <div></div>}
       </Row>
     </Container>
+    </>
   );
 };
 export default CharaIndex;

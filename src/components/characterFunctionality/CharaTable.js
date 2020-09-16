@@ -1,5 +1,6 @@
 import React from 'react';
-import {Table, Button} from 'reactstrap'
+import {Button, Card, CardTitle, CardSubtitle, CardText, CardHeader, CardFooter} from 'reactstrap'
+import './CharaTable.css'
 import APIURL from '../../helpers/environment';
 
 const CharaTable = (props) => {
@@ -16,38 +17,32 @@ const CharaTable = (props) => {
     const charaMapper = () => { 
         return props.chara.map((chara, index) => {
             return(
-                <tr key={index}>
-                    <td>{chara.name}</td>
-                    <td>{chara.species}</td>
-                    <td>{chara.ageInYears}</td>
-                    <td>{chara.description}</td>
-                    <td>
+         
+                <Card key={index}>
+                    <CardHeader tag="h2">{chara.name}</CardHeader>
+                    <CardText>{chara.species}</CardText>
+                    <CardText>{chara.ageInYears}</CardText>
+                    <CardText>{chara.description}</CardText>
+                     <CardFooter>
                         <Button color="warning" onClick={() => {props.editUpdateChara(chara); props.updateOn()}}>Update</Button>
                         <Button color="danger" onClick={() => {deleteCharacter(chara)}}>Delete</Button>
-                    </td>
-                </tr>
+                    </CardFooter>
+                </Card>
+                
             )
         })
     };
 
 return (
-    <>
-    <h3>Characters</h3>
-    <hr />
-    <Table striped>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Species</th>
-                <th>Age</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            {charaMapper()}
-        </tbody>
-    </Table>
-    </>
+
+ <div className="main"> 
+    <div className="mainDiv">
+        <h1>Character List</h1>
+           {charaMapper()}
+        </div>
+    </div>
+
+ 
 )
 }
 export default CharaTable;

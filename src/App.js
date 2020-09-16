@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
 import Auth from './components/Auth/Auth';
 import CharaIndex from './components/characterFunctionality/CharaIndex';
-
+import Sidebar from './components/Navbar/Sidebar';
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
 
  
   const viewToggle = () => {
-    return (sessionToken === localStorage.getItem('token') ? <CharaIndex token={sessionToken} /> 
+    return (sessionToken === localStorage.getItem('token') ? <Sidebar token={sessionToken} /> 
     : <Auth updateToken={updateToken}/>)
 
   }

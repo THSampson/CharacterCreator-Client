@@ -39,7 +39,7 @@ const CharaCreate = (props) => {
     }
 return(
     <div>
-    <h3>Create A New Character</h3>
+    {/* <h3>Create A New Character</h3>
     <Form onSubmit={handleSubmit}>
     <FormGroup>
     <Label htmlFor="name"/>
@@ -55,10 +55,10 @@ return(
     </FormGroup>
     <FormGroup>
     <Label htmlFor="description"/>
-    <Input name="description" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+    <Input name="description" type="textarea" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
     </FormGroup>
-    <Button type="submit">Click to Submit Character</Button>
-    </Form>
+    <Button type="submit">Create</Button>
+    </Form> */}
     </div>
   
 )

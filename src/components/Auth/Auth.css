@@ -6,3 +6,8 @@
 Button {
     margin: 5px;
 }
+
+body {
+    background-image: url('../../Assets/parch.jpg');
+    background-size: cover;
+}
