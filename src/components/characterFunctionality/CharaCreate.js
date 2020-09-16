@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalBody, ModalHeader} from 'reactstrap';
+import APIURL from '../../helpers/environment';
+
 
 const CharaCreate = (props) => {
     console.log(props);
@@ -18,7 +20,7 @@ const CharaCreate = (props) => {
         }
     
 
-    fetch('http://localhost:3000/chara', {
+    fetch(`http://localhost:3000/chara`, {
         method: 'POST',
         body: JSON.stringify(charaObject),
         headers: new Headers({
@@ -34,11 +36,16 @@ const CharaCreate = (props) => {
     setAge('')
     setDescription('');
     props.fetchCharacters();
+    props.createToggle();
     })
     }
+
+    const closeBtn = <button className="close" onClick={props.createToggle}>X</button>
 return(
     <div>
-    <h3>Create A New Character</h3>
+    <Modal isOpen={props.modal} toggle={props.createToggle}>
+    <ModalHeader toggle={props.createToggle} close={closeBtn}>Create A New Character</ModalHeader>
+    <ModalBody>
     <Form onSubmit={handleSubmit}>
     <FormGroup>
     <Label htmlFor="name"/>
@@ -50,14 +57,16 @@ return(
     </FormGroup>
     <FormGroup>
     <Label htmlFor="age"/>
-    <Input name="age" placeholder="age" value={age} onChange={(e) => setAge(e.target.value)}/>
+    <Input type="number" min="0" name="age" placeholder="age" value={age} onChange={(e) => setAge(e.target.value)}/>
     </FormGroup>
     <FormGroup>
     <Label htmlFor="description"/>
     <Input name="description" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
     </FormGroup>
-    <Button type="submit">Click to Submit Character</Button>
+    <Button type="submit" color="outline-success">Create</Button>
     </Form>
+    </ModalBody>
+    </Modal>
     </div>
   
 )
