@@ -1,5 +1,7 @@
 .App {
-    text-align: center;
+    text-align: center;  
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
   }
   
   .App-logo {
@@ -31,3 +33,21 @@
       transform: rotate(360deg);
     }
   }
+
+
+body {
+  background-color: #ebdfc7;
+  
+}
+
+Button {
+  width: 90%;
+  cursor: pointer;
+  margin-right: 0.25em;
+  margin-top: 0.5em;
+}
+Container{
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+

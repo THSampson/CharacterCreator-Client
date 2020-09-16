@@ -4,7 +4,7 @@ import './App.css';
 import Auth from './components/Auth/Auth';
 import CharaIndex from './components/characterFunctionality/CharaIndex';
 import Sidebar from './components/Navbar/Sidebar';
-
+import Navbar from './components/Navbar/Navbar'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -28,9 +28,8 @@ function App() {
 
  
   const viewToggle = () => {
-    return (sessionToken === localStorage.getItem('token') ? <Sidebar token={sessionToken} /> 
+    return (sessionToken === localStorage.getItem('token') ? <Sidebar token={sessionToken} setSessionToken={setSessionToken}/> 
     : <Auth updateToken={updateToken}/>)
-
   }
 
   return (

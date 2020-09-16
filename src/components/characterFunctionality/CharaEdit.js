@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import './CharaEdit.css';
 import APIURL from '../../helpers/environment';
 
 const CharaEdit = (props) => {
@@ -10,7 +11,7 @@ const CharaEdit = (props) => {
      
     const charaUpdate= (event) => {
         event.preventDefault();
-        fetch(`${APIURL}/chara/${props.charaToUpdate.id}`, {
+        fetch(`http://localhost:3000/chara/${props.charaToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({name: editName, species: editSpecies, ageInYears: editAge, description: editDescription}),
             headers: new Headers({
@@ -20,15 +21,17 @@ const CharaEdit = (props) => {
         })
         .then((response) => {
             props.fetchCharacters();
-            props.updateOff();
+            props.updateToggle();
+
         })
 
     }
+    const closeBtn = <Button className="close" onClick={props.updateToggle}>X</Button>
     return (
-        <Modal isOpen={true}>
-               <ModalHeader>Create a Character</ModalHeader>
+        <Modal isOpen={props.updateActive} toggle={props.updateToggle} className="editMain" >
+               <ModalHeader toggle={props.updateToggle} close={closeBtn}>Update</ModalHeader>
                <ModalBody>
-            <Form onSubmit={charaUpdate}>
+            <Form onSubmit={charaUpdate} className="editForm">
                 <FormGroup>
                     <Label htmlFor="name"> Edit Name: </Label>
                     <Input name="name" value={editName} onChange={(e) => setEditName(e.target.value)} />
@@ -45,7 +48,7 @@ const CharaEdit = (props) => {
                     <Label htmlFor="description"> Edit Description: </Label>
                     <Input name="description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)}  />
                 </FormGroup>
-                    <Button type="submit">Update the Character!</Button>
+                    <Button type="submit" color="outline-success" >Update the Character!</Button>
             </Form>
                </ModalBody>
            </Modal>

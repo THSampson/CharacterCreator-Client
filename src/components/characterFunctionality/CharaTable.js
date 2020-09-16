@@ -5,7 +5,7 @@ import APIURL from '../../helpers/environment';
 
 const CharaTable = (props) => {
     const deleteCharacter = (chara) => {
-        fetch(`${APIURL}/chara/${chara.id}`, {
+        fetch(`http://localhost:3000/chara/${chara.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -16,25 +16,22 @@ const CharaTable = (props) => {
     }
     const charaMapper = () => { 
         return props.chara.map((chara, index) => {
-            return(
-         
+            return(      
                 <Card key={index}>
                     <CardHeader tag="h2">{chara.name}</CardHeader>
                     <CardText>{chara.species}</CardText>
                     <CardText>{chara.ageInYears}</CardText>
                     <CardText>{chara.description}</CardText>
                      <CardFooter>
-                        <Button color="warning" onClick={() => {props.editUpdateChara(chara); props.updateOn()}}>Update</Button>
-                        <Button color="danger" onClick={() => {deleteCharacter(chara)}}>Delete</Button>
+                        <Button color="warning" onClick={() => {props.editUpdateChara(chara); props.updateToggle()}}>Update</Button>
+                        <Button color="danger" onClick={() => {if(window.confirm(`Are you sure you wish to delete ${chara.name}?`))deleteCharacter(chara)}}>Delete</Button>
                     </CardFooter>
                 </Card>
-                
             )
         })
     };
 
 return (
-
  <div className="main"> 
     <div className="mainDiv">
         <h1>Character List</h1>
@@ -42,7 +39,4 @@ return (
         </div>
     </div>
 
- 
-)
-}
 export default CharaTable;

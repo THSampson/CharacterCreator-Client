@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import './CharaCreate.css';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalBody, ModalHeader} from 'reactstrap';
 import APIURL from '../../helpers/environment';
 
 const CharaCreate = (props) => {
-    console.log(props);
     const [name, setName] = useState('');
     const [species, setSpecies] = useState('');
     const [age, setAge] = useState('');
     const [description, setDescription] = useState('');
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -17,30 +18,32 @@ const CharaCreate = (props) => {
             age: age,
             description: description
         }
-    
-
-    fetch(`${APIURL}/chara`, {
-        method: 'POST',
-        body: JSON.stringify(charaObject),
-        headers: new Headers({
-        'Content-Type': 'application/json', 
-        'authorization': props.token
+        fetch('http://localhost:3000/chara', {
+            method: 'POST',
+            body: JSON.stringify(charaObject),
+            headers: new Headers({
+            'Content-Type': 'application/json', 
+            'authorization': props.token
+            })
         })
-    })
-    .then(response => response.json())
-    .then((charaData) => {
-    console.log(charaData);
-    setName('')
-    setSpecies('')
-    setAge('')
-    setDescription('');
-    props.fetchCharacters();
-    })
+        .then(response => response.json())
+        .then((charaData) => {
+        setName('')
+        setSpecies('')
+        setAge('')
+        setDescription('');
+        props.fetchCharacters();
+        props.createToggle();
+        })
     }
+    const closeBtn = <Button className="close" onClick={props.createToggle}>X</Button>
 return(
-    <div>
-    {/* <h3>Create A New Character</h3>
+    {<h3>Create A New Character</h3>
     <Form onSubmit={handleSubmit}>
+    <Modal isOpen={props.modal} toggle={props.createToggle} className="createMain">
+    <ModalHeader toggle={props.createToggle} close={closeBtn}>Create A New Character</ModalHeader>
+    <ModalBody>
+    <Form onSubmit={handleSubmit} className="createForm">
     <FormGroup>
     <Label htmlFor="name"/>
     <Input name="name" placeholder="name" value={name} onChange={(e) => setName(e.target.value)}/>
@@ -51,17 +54,17 @@ return(
     </FormGroup>
     <FormGroup>
     <Label htmlFor="age"/>
-    <Input name="age" placeholder="age" value={age} onChange={(e) => setAge(e.target.value)}/>
+    <Input type="number" min="0" name="age" placeholder="age" value={age} onChange={(e) => setAge(e.target.value)}/>
     </FormGroup>
     <FormGroup>
     <Label htmlFor="description"/>
     <Input name="description" type="textarea" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
     </FormGroup>
-    <Button type="submit">Create</Button>
-    </Form> */}
-    </div>
-  
-)
+     <Button color="outline-success"  type="submit" >Create </Button>
+    </Form>
+    </ModalBody>
+    </Modal>
 
+)
 }
 export default CharaCreate;
