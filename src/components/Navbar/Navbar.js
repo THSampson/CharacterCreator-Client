@@ -1,29 +1,26 @@
 import React from 'react';
-import './Navbar.css';
-import {Nav, NavLink, NavItem} from 'reactstrap';
+import { Nav, NavItem, NavLink, Navbar } from 'reactstrap'
+import Signout from './Signout/Signout';
+import './Navbar.css'
 
-
-const Navbar = () => {
+const NavbarComponent = (props) => {
+    const createToggleClick = (event) => {
+        event.preventDefault();
+        props.createToggle();
+    }
     return (
         <div>
-             <Nav className="justify-content-end" activeKey="/home">
-    <NavItem>
-      <NavLink eventKey="charaCreate"> + </NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink href="/home">Home</NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink eventKey="getAll">Get All</NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink eventKey="logOut" >
-        Log Out
-      </NavLink>
-    </NavItem>
-  </Nav>
+            <Navbar color="light" light expand="md">
+            <Nav id="navbar" className="ml-auto">
+                <NavItem onClick={createToggleClick}>
+                    <NavLink href="">Create</NavLink>
+                </NavItem>
+                <NavItem onClick={() => {props.setSessionToken(''); localStorage.clear()}}>
+                    <NavLink href="">Sign Out</NavLink>
+                </NavItem>
+            </Nav>
+            </Navbar>
         </div>
     )
 }
-
-export default Navbar;
+export default NavbarComponent

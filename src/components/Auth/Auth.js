@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Form, Label, Input, Button} from 'reactstrap';
+import APIURL from '../../helpers/environment';
 import './Auth.css'
 
 const Auth = (props) => { 
@@ -35,7 +36,7 @@ const Auth = (props) => {
         
     const userFunction = (event) => {
         event.preventDefault();
-        let url = signIn ? 'http://localhost:3000/user/signin' : 'http://localhost:3000/user/signup'
+        let url = signIn ? `http://localhost:3000/user/signin` : `http://localhost:3000/user/signup`
         let userObject = {
             fName: firstName,
             lName: lastName,
@@ -59,7 +60,7 @@ const Auth = (props) => {
                 {signupFields()}
             <Label htmlFor="email" style={{fontWeight: "bold"}}>Email:</Label>
             <br />
-            <Input size="lg"  type = "text" id="id" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={{fontWeight: "bold"}}/>
+            <Input size="lg"  type = "email" id="id" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={{fontWeight: "bold"}}/>
             <br />
             <Label htmlFor="password" style={{fontWeight: "bold"}}>Password:</Label>
             <br />

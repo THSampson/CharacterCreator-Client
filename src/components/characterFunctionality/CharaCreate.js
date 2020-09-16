@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {Button, Form, FormGroup, Label, Input, Modal,ModalHeader, ModalBody} from 'reactstrap';
 import './CharaCreate.css';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalBody, ModalHeader} from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 const CharaCreate = (props) => {
     const [name, setName] = useState('');
@@ -17,8 +18,6 @@ const CharaCreate = (props) => {
             age: age,
             description: description
         }
-    
-
         fetch('http://localhost:3000/chara', {
             method: 'POST',
             body: JSON.stringify(charaObject),
@@ -35,9 +34,7 @@ const CharaCreate = (props) => {
         setDescription('');
         props.fetchCharacters();
         props.createToggle();
-
         })
-
     }
     const closeBtn = <Button className="close" onClick={props.createToggle}>X</Button>
 return(
@@ -55,7 +52,7 @@ return(
     </FormGroup>
     <FormGroup>
     <Label htmlFor="age"/>
-    <Input name="age" placeholder="age" value={age} onChange={(e) => setAge(e.target.value)}/>
+    <Input type="number" min="0" name="age" placeholder="age" value={age} onChange={(e) => setAge(e.target.value)}/>
     </FormGroup>
     <FormGroup>
     <Label htmlFor="description"/>
@@ -65,9 +62,6 @@ return(
     </Form>
     </ModalBody>
     </Modal>
-   
-  
 )
-
 }
 export default CharaCreate;

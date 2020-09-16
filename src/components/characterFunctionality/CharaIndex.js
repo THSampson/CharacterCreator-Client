@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Container, Row, Col, Button} from "reactstrap";
+import APIURL from '../../helpers/environment';
 import CharaCreate from "./CharaCreate";
 import CharaTable from "./CharaTable.js";
 import CharaEdit from "./CharaEdit";
+import NavbarComponent from '../Navbar/Navbar'
 
 const CharaIndex = (props) => {
   const [chara, setChara] = useState([]);
   const [createActive, setCreateActive] = useState(false);
   const [updateActive, setUpdateActive] = useState(false);
+  const [createActive, setCreateActive] = useState(false);
   const [charaToUpdate, setCharaToUpdate] = useState({});
   const [modal, setModal] = useState(false);
 
-
   const fetchCharacters = () => {
-    fetch('http://localhost:3000/chara', {
+    fetch(`http://localhost:3000/chara`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -34,7 +36,6 @@ const CharaIndex = (props) => {
     setUpdateActive(!updateActive);
   };
 
-  
   const createToggle = () => {
     setCreateActive(!createActive);
     setModal(!modal)
@@ -46,12 +47,13 @@ const CharaIndex = (props) => {
 
   return (
     <Container>
+      <NavbarComponent token={props.token} setSessionToken={props.setSessionToken} createToggle={createToggle}/>
       <Row>
         <Button onClick={createToggle}color="outline-dark" className="create">Create Character</Button>
         <Col md="2">
-          { createActive ? 
-          <CharaCreate fetchCharacters={fetchCharacters} token={props.token} createToggle={createToggle} modal={modal} />
-         : <div></div> } 
+          {createActive ? 
+          <CharaCreate fetchCharacters={fetchCharacters} token={props.token} createToggle={createToggle} modal={modal}/> : null
+        }
         </Col>
         <Col md="8">
           {(chara.length) ? 
