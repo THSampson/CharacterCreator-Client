@@ -4,7 +4,7 @@ import APIURL from '../../helpers/environment';
 
 const CharaTable = (props) => {
     const deleteCharacter = (chara) => {
-        fetch(`${APIURL}/chara/${chara.id}`, {
+        fetch(`http://localhost:3000/chara/${chara.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -22,8 +22,8 @@ const CharaTable = (props) => {
                     <td>{chara.ageInYears}</td>
                     <td>{chara.description}</td>
                     <td>
-                        <Button color="warning" onClick={() => {props.editUpdateChara(chara); props.updateOn()}}>Update</Button>
-                        <Button color="danger" onClick={() => {deleteCharacter(chara)}}>Delete</Button>
+                        <Button color="outline-success"  onClick={() => {props.editUpdateChara(chara); props.updateToggle()}}>Update</Button>
+                        <Button color="outline-danger" onClick={() => { if (window.confirm(`Are you sure you wish to delete ${chara.name}`)) deleteCharacter(chara)}}>Delete</Button>
                     </td>
                 </tr>
             )
@@ -34,7 +34,7 @@ return (
     <>
     <h3>Characters</h3>
     <hr />
-    <Table striped>
+    <Table striped bordered hover size="sm">
         <thead>
             <tr>
                 <th>Name</th>
