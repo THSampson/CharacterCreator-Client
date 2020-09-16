@@ -9,9 +9,10 @@ const NavbarComponent = (props) => {
         props.createToggle();
     }
     return (
-        <div>
-            <Navbar color="light" light expand="md">
-            <Nav id="navbar" className="ml-auto">
+        <div className="random">
+
+            <Navbar className="navClass" color="danger" light expand="md">
+            <Nav pills id="navbar" className="ml-auto">
                 <NavItem onClick={createToggleClick}>
                     <NavLink href="">Create</NavLink>
                 </NavItem>

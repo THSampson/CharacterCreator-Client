@@ -8,7 +8,6 @@ import NavbarComponent from '../Navbar/Navbar'
 
 const CharaIndex = (props) => {
   const [chara, setChara] = useState([]);
-  const [createActive, setCreateActive] = useState(false);
   const [updateActive, setUpdateActive] = useState(false);
   const [createActive, setCreateActive] = useState(false);
   const [charaToUpdate, setCharaToUpdate] = useState({});
@@ -49,7 +48,6 @@ const CharaIndex = (props) => {
     <Container>
       <NavbarComponent token={props.token} setSessionToken={props.setSessionToken} createToggle={createToggle}/>
       <Row>
-        <Button onClick={createToggle}color="outline-dark" className="create">Create Character</Button>
         <Col md="2">
           {createActive ? 
           <CharaCreate fetchCharacters={fetchCharacters} token={props.token} createToggle={createToggle} modal={modal}/> : null
