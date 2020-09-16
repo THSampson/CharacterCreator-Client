@@ -4,8 +4,6 @@
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     opacity: .9;
-
-
 }
 .editForm{
     background-color: #ebdfc7;
@@ -15,4 +13,8 @@
 }
 .editForm input{
     font-weight: bold;
+}
+.close{
+    float: right;
+    width: 15%;
 }

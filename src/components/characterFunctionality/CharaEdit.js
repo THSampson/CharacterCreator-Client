@@ -26,9 +26,10 @@ const CharaEdit = (props) => {
         })
 
     }
+    const closeBtn = <Button className="close" onClick={props.updateToggle}>X</Button>
     return (
-        <Modal isOpen={props.updateActive} className="editMain" >
-               <ModalHeader toggle={props.updateToggle} charCode="X" className="X">Update</ModalHeader>
+        <Modal isOpen={props.updateActive} toggle={props.updateToggle} className="editMain" >
+               <ModalHeader toggle={props.updateToggle} close={closeBtn}>Update</ModalHeader>
                <ModalBody>
             <Form onSubmit={charaUpdate} className="editForm">
                 <FormGroup>

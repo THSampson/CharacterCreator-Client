@@ -5,7 +5,6 @@
     font-family: 'Courier New', Courier, monospace;
     opacity: .9;
 
-
 }
 .createForm{
     background-color: #ebdfc7;
@@ -15,4 +14,8 @@
 }
 .createForm input{
     font-weight: bold;
+}
+.close{
+    float: right;
+    width: 15%;
 }
