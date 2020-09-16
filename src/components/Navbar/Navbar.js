@@ -11,13 +11,13 @@ const NavbarComponent = (props) => {
     return (
         <div className="random">
 
-            <Navbar className="navClass" color="danger" light expand="md">
+            <Navbar className="navClass" color="outline-dark" block>
             <Nav pills id="navbar" className="ml-auto">
                 <NavItem onClick={createToggleClick}>
-                    <NavLink href="">Create</NavLink>
+                    <NavLink href="" style={{color: "black"}}>Create</NavLink>
                 </NavItem>
                 <NavItem onClick={() => {props.setSessionToken(''); localStorage.clear()}}>
-                    <NavLink href="">Sign Out</NavLink>
+                    <NavLink href="" style={{color: "black"}}>Sign Out</NavLink>
                 </NavItem>
             </Nav>
             </Navbar>

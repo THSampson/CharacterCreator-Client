@@ -1,13 +1,13 @@
 #navbar {
     display: flex;
     justify-content: flex-end;
-    /* background-color: #e69721; */
+    background-color: #e69721;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
 }
 
 .random{
-    background-color:  #e69721;
     border: solid 2px black;
     border-radius: 5px;
     
