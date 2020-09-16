@@ -20,12 +20,14 @@ const CharaEdit = (props) => {
         })
         .then((response) => {
             props.fetchCharacters();
+            props.updateToggle();
+
         })
 
     }
     return (
-        <Modal isOpen={props.updateActive}>
-               <ModalHeader toggle={props.updateToggle} charCode="X">Update Character</ModalHeader>
+        <Modal isOpen={props.updateActive} className="main" >
+               <ModalHeader toggle={props.updateToggle} charCode="X" className="X">Update</ModalHeader>
                <ModalBody>
             <Form onSubmit={charaUpdate}>
                 <FormGroup>
@@ -44,7 +46,7 @@ const CharaEdit = (props) => {
                     <Label htmlFor="description"> Edit Description: </Label>
                     <Input name="description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)}  />
                 </FormGroup>
-                    <Button type="submit" color="outline-success" onClick={props.updateToggle} >Update the Character!</Button>
+                    <Button type="submit" color="outline-success" >Update the Character!</Button>
             </Form>
                </ModalBody>
            </Modal>

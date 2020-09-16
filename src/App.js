@@ -4,8 +4,6 @@ import './App.css';
 import Auth from './components/Auth/Auth';
 import CharaIndex from './components/characterFunctionality/CharaIndex';
 
-
-
 function App() {
   const [sessionToken, setSessionToken] = useState('');
 

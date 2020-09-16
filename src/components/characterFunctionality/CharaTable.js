@@ -22,7 +22,7 @@ const CharaTable = (props) => {
                     <td>{chara.description}</td>
                     <td>
                         <Button color="outline-success"  onClick={() => {props.editUpdateChara(chara); props.updateToggle()}}>Update</Button>
-                        <Button color="outline-danger" onClick={() => {deleteCharacter(chara)}}>Delete</Button>
+                        <Button color="outline-danger" onClick={() => { if (window.confirm(`Are you sure you wish to delete ${chara.name}`)) deleteCharacter(chara)}}>Delete</Button>
                     </td>
                 </tr>
             )

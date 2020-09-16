@@ -47,7 +47,7 @@ const CharaIndex = (props) => {
   return (
     <Container>
       <Row>
-        <Button onClick={createToggle}color="outline-primary" >Create Character</Button>
+        <Button onClick={createToggle}color="outline-primary" className="create">Create Character</Button>
         <Col md="2">
           { createActive ? 
           <CharaCreate fetchCharacters={fetchCharacters} token={props.token} createToggle={createToggle} modal={modal} />

@@ -33,6 +33,7 @@ const CharaCreate = (props) => {
         setAge('')
         setDescription('');
         props.fetchCharacters();
+        props.createToggle();
 
         })
 
@@ -42,7 +43,6 @@ return(
     <Modal isOpen={props.modal}>
     <ModalHeader toggle={props.createToggle} charCode="X">Create A New Character</ModalHeader>
     <ModalBody>
-
     <Form onSubmit={handleSubmit}>
     <FormGroup>
     <Label htmlFor="name"/>
@@ -60,7 +60,7 @@ return(
     <Label htmlFor="description"/>
     <Input name="description" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
     </FormGroup>
-    <Button color="outline-success"  type="submit" onClick={props.createToggle}>Create </Button>
+    <Button color="outline-success"  type="submit" >Create </Button>
     </Form>
     </ModalBody>
     </Modal>
