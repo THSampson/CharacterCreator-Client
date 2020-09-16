@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import './CharaEdit.css';
 
 
 const CharaEdit = (props) => {
@@ -26,10 +27,10 @@ const CharaEdit = (props) => {
 
     }
     return (
-        <Modal isOpen={props.updateActive} className="main" >
+        <Modal isOpen={props.updateActive} className="editMain" >
                <ModalHeader toggle={props.updateToggle} charCode="X" className="X">Update</ModalHeader>
                <ModalBody>
-            <Form onSubmit={charaUpdate}>
+            <Form onSubmit={charaUpdate} className="editForm">
                 <FormGroup>
                     <Label htmlFor="name"> Edit Name: </Label>
                     <Input name="name" value={editName} onChange={(e) => setEditName(e.target.value)} />

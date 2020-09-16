@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal,ModalHeader, ModalBody} from 'reactstrap';
+import './CharaCreate.css';
 
 const CharaCreate = (props) => {
     const [name, setName] = useState('');
@@ -40,10 +41,10 @@ const CharaCreate = (props) => {
     }
 
 return(
-    <Modal isOpen={props.modal}>
-    <ModalHeader toggle={props.createToggle} charCode="X">Create A New Character</ModalHeader>
+    <Modal isOpen={props.modal} className="createMain">
+    <ModalHeader toggle={props.createToggle} charCode="X">Create Character</ModalHeader>
     <ModalBody>
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className="createForm">
     <FormGroup>
     <Label htmlFor="name"/>
     <Input name="name" placeholder="name" value={name} onChange={(e) => setName(e.target.value)}/>

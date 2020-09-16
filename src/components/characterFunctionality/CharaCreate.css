@@ -1,4 +1,4 @@
-.editMain{
+.createMain{
     color: #e69721;
     text-align: center;
     font-weight: bold;
@@ -7,12 +7,12 @@
 
 
 }
-.editForm{
+.createForm{
     background-color: #ebdfc7;
     border: solid black;
     border-radius:10px;
     padding: 5px;
 }
-.editForm input{
+.createForm input{
     font-weight: bold;
 }

@@ -9,5 +9,12 @@ Button {
 .div{
     display: inline-block;
     margin: 0 auto;
-    padding: 3px;
+    padding: 5px;
+    background-color: #ebdfc7;
+    border: solid black;
+    border-radius:10px;
+    margin-top: 10em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    opacity: .9;
 }
