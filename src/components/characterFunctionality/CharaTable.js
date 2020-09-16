@@ -4,7 +4,7 @@ import APIURL from '../../helpers/environment';
 
 const CharaTable = (props) => {
     const deleteCharacter = (chara) => {
-        fetch(`${APIURL}/chara/${chara.id}`, {
+        fetch(`http://localhost:3000/chara/${chara.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',

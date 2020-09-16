@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Button} from "reactstrap";
 import APIURL from '../../helpers/environment';
 import CharaCreate from "./CharaCreate";
 import CharaTable from "./CharaTable.js";
 import CharaEdit from "./CharaEdit";
+import NavbarComponent from '../Navbar/Navbar'
 
 const CharaIndex = (props) => {
   console.log(props);
   const [chara, setChara] = useState([]);
   const [updateActive, setUpdateActive] = useState(false);
+  const [createActive, setCreateActive] = useState(false);
   const [charaToUpdate, setCharaToUpdate] = useState({});
+  const [modal, setModal] = useState(false)
 
   const fetchCharacters = () => {
-    fetch(`${APIURL}/chara`, {
+    fetch(`http://localhost:3000/chara`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -27,15 +30,15 @@ const CharaIndex = (props) => {
 
   const editUpdateChara = (chara) => {
     setCharaToUpdate(chara);
-    console.log(chara);
   };
 
-  const updateOn = () => {
-    setUpdateActive(true);
+  const updateToggle = () => {
+    setUpdateActive(!updateActive);
   };
 
-  const updateOff = () => {
-    setUpdateActive(false);
+  const createToggle = () => {
+    setCreateActive(!createActive);
+    setModal(!modal)
   };
 
   useEffect(() => {
@@ -44,16 +47,19 @@ const CharaIndex = (props) => {
 
   return (
     <Container>
+      <NavbarComponent token={props.token} setSessionToken={props.setSessionToken} createToggle={createToggle}/>
       <Row>
         <Col md="2">
-          <CharaCreate fetchCharacters={fetchCharacters} token={props.token} />
+          {createActive ? 
+          <CharaCreate fetchCharacters={fetchCharacters} token={props.token} createToggle={createToggle} modal={modal}/> : null
+        }
         </Col>
         <Col md="8">
           {(chara.length) ? 
           <CharaTable
             chara={chara}
             editUpdateChara={editUpdateChara}
-            updateOn={updateOn}
+            updateToggle={updateToggle}
             fetchCharacters={fetchCharacters}
             token={props.token}
           /> : <h1>Create a New Character</h1>}
@@ -61,7 +67,8 @@ const CharaIndex = (props) => {
         {updateActive ? 
           <CharaEdit
             charaToUpdate={charaToUpdate}
-            updateOff={updateOff}
+            updateActive={updateActive}
+            updateToggle={updateToggle}
             token={props.token}
             fetchCharacters={fetchCharacters}
           />

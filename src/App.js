@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
 import Auth from './components/Auth/Auth';
 import CharaIndex from './components/characterFunctionality/CharaIndex';
+import Navbar from './components/Navbar/Navbar'
 
 
 
@@ -28,7 +29,7 @@ function App() {
 
  
   const viewToggle = () => {
-    return (sessionToken === localStorage.getItem('token') ? <CharaIndex token={sessionToken} /> 
+    return (sessionToken === localStorage.getItem('token') ? <CharaIndex token={sessionToken} setSessionToken={setSessionToken}/> 
     : <Auth updateToken={updateToken}/>)
 
   }
@@ -36,6 +37,7 @@ function App() {
   return (
     <div className="App">
       <div className="mainDiv">
+        {/* <Navbar setSessionToken={setSessionToken} sessionToken={sessionToken}/> */}
         {viewToggle()}
        </div>
     </div>

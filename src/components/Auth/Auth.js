@@ -36,7 +36,7 @@ const Auth = (props) => {
         
     const userFunction = (event) => {
         event.preventDefault();
-        let url = signIn ? `${APIURL}/user/signin` : `${APIURL}/user/signup`
+        let url = signIn ? `http://localhost:3000/user/signin` : `http://localhost:3000/user/signup`
         let userObject = {
             fName: firstName,
             lName: lastName,
@@ -60,7 +60,7 @@ const Auth = (props) => {
                 {signupFields()}
             <Label htmlFor="email">Email:</Label>
             <br />
-            <Input type = "text" id="id" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
+            <Input type = "email" id="id" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
             <br />
             <Label htmlFor="password">Password:</Label>
             <br />
