@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -65,4 +65,29 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
+
+# Character Cache Server
+
+## Landing Page
+### The first thing a user sees on the application is the signin. If they already have an account, they can log in. If not, they can create a new account.
+![Default SignIn](./assets/ReadmeScreenshots/DefaultLoginScreen.JPG)
+![Click SignUp](./assets/ReadmeScreenshots/ClickSignUp.png)
+### When signing in, a user's password must be at least five characters, otherwise the Sign In button will be disabled
+![Invalid Password Signin](./assets/ReadmeScreenshots/LoginPasswordValidation.JPG)
+![Valid Password Signin](./assets/ReadmeScreenshots/SignInButtonAvailable.JPG)
+
+## SignUp
+### After clicking the SignUp button, users are greeted by a new screen. They need to input first and last Name, an email, and a password of at least five characters.
+![Default SignUp](./assets/ReadmeScreenshots/DefaultSignUp.JPG)
+### Email addresses must include an @ symbol and text after it.
+![No At Symbol](./assets/ReadmeScreenshots/EmailValidation1.JPG)
+![No Text Following At](./assets/ReadmeScreenshots/EmailValidation2.JPG)
+### Users are unable to create an account if the password is less than 5 characters
+![Invalid Password SignUp](./assets/ReadmeScreenshots/InvalidPassword.JPG)
+### Once all the information is valid, users can click the Create Account button
+![Create Account](./assets/ReadmeScreenshots/CreateAccount.png)
+
+## Characters
+### Once logged in, a user will be shown the character screen. If they have existing characters, those will show up, otherwise there will be an empty space.
+![Existing Characters](./assets/ReadmeScreenshots/Default)
