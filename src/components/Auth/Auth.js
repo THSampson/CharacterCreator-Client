@@ -22,7 +22,7 @@ const Auth = (props) => {
     }
     const signupFields = () => !signIn ? (
         <div>
-            <Form>
+            <Form className="signupFields">
             <Label size="lg" htmlFor="firstName" style={{fontWeight: "bold"}}>First Name:</Label>
             <br />
             <Input size="lg" type = "text" id="firstName" placeholder="First Name" value={firstName} onChange={e => setFirstName(e.target.value)} style={{fontWeight: "bold"}}/>
@@ -31,6 +31,7 @@ const Auth = (props) => {
             <br />
             <Input size="lg" type = "text" id="lastName" placeholder="Last Name" value={lastName} onChange={e => setLastName(e.target.value)} style={{fontWeight: "bold"}}/>
        </Form>
+       <br/>
         </div>
     )  : null
         

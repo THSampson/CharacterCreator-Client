@@ -6,6 +6,8 @@ import CharaTable from "./CharaTable.js";
 import CharaEdit from "./CharaEdit";
 import NavbarComponent from '../Navbar/Navbar'
 
+
+
 const CharaIndex = (props) => {
   const [chara, setChara] = useState([]);
   const [updateActive, setUpdateActive] = useState(false);
@@ -45,6 +47,7 @@ const CharaIndex = (props) => {
   }, []);
 
   return (
+    <>
     <Container>
       <NavbarComponent token={props.token} setSessionToken={props.setSessionToken} createToggle={createToggle}/>
       <Row>
@@ -61,7 +64,7 @@ const CharaIndex = (props) => {
             updateToggle={updateToggle}
             fetchCharacters={fetchCharacters}
             token={props.token}
-          /> : <h1>Create a New Character</h1>}
+          /> : ''}
         </Col>
         {updateActive ? 
           <CharaEdit
@@ -74,6 +77,7 @@ const CharaIndex = (props) => {
         : <div></div>}
       </Row>
     </Container>
+    </>
   );
 };
 export default CharaIndex;

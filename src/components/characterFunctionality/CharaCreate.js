@@ -38,8 +38,9 @@ const CharaCreate = (props) => {
     }
     const closeBtn = <Button className="close" onClick={props.createToggle}>X</Button>
 return(
+    <>
     <Modal isOpen={props.modal} toggle={props.createToggle} className="createMain">
-    <ModalHeader toggle={props.createToggle} close={closeBtn}>Create A New Character</ModalHeader>
+    <ModalHeader toggle={props.createToggle} close={closeBtn}>Create</ModalHeader>
     <ModalBody>
     <Form onSubmit={handleSubmit} className="createForm">
     <FormGroup>
@@ -56,12 +57,14 @@ return(
     </FormGroup>
     <FormGroup>
     <Label htmlFor="description"/>
-    <Input name="description" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+    <Input name="description" type="textarea" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
     </FormGroup>
-    <Button color="outline-success"  type="submit" >Create </Button>
+     <Button color="outline-success"  type="submit" >Create </Button>
     </Form>
     </ModalBody>
     </Modal>
+    </>
+
 )
 }
 export default CharaCreate;
