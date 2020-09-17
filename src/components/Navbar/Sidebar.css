@@ -63,3 +63,8 @@ hr {
 h3 {
   text-decoration: underline;
 }
+
+.navFont {
+  text-decoration: underline;
+  font-family: 'Enchanted Land';
+}
