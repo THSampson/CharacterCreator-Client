@@ -91,7 +91,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ## Characters
 ### Once logged in, a user will be shown the character screen. If they have existing characters, those will show up, otherwise there will be an empty space.
 ![Existing Characters](./src/Assets/ReadmeScreenshots/Login_ExistingCharacters.JPG)
-![No Characters](./src/Assets/ReadmeScreenshots/Login_NoCharacters.JPG)
+![No Characters](./src/Assets/ReadmeScreenshots/NoCharacters.JPG)
 ### To create a character, one must simply click the Create button
 ![Create Character](./src/Assets/ReadmeScreenshots/ClickCreate.png)
 ![Create Modal](./src/Assets/ReadmeScreenshots/DefaultCreateModal.JPG)
