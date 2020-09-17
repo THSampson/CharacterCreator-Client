@@ -41,7 +41,7 @@ return(
     <>
     <Form onSubmit={handleSubmit}>
     <Modal isOpen={props.modal} toggle={props.createToggle} className="createMain">
-    <ModalHeader toggle={props.createToggle} close={closeBtn}></ModalHeader>
+    <ModalHeader toggle={props.createToggle} close={closeBtn}>Create</ModalHeader>
     <ModalBody>
     <Form onSubmit={handleSubmit} className="createForm">
     <FormGroup>

@@ -34,7 +34,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Welcome to Your Character</h1>
+      <h1>Character Cache</h1>
+      <p>A place to store characters for your next roleplay, novel, or whatever you may need.</p>
       <div>
         {viewToggle()}
        </div>

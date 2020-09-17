@@ -1,5 +1,4 @@
 import React from 'react'
-import './Signout.css'
 
 const Signout = (props) => {
     return (

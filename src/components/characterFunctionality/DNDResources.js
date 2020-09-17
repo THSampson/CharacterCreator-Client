@@ -5,10 +5,11 @@ const DNDResources = () => {
 return(
 <Container className="container">
     <h1>DND Resources</h1>
-    <h3>For New and Old Fans</h3>
+    <h2>For New and Old Fans</h2>
     <p>New to the game or just need a little refresher? Here's a few resources and 
         guides that will get you rolling the dice in no time.</p>
-
+        <hr />
+        <h3>Links:</h3>
         <ul>
             <li><a href="https://dnd.wizards.com/" target="_blank" > Official Site</a></li>
             <li><a href="https://dnd.wizards.com/%3Cnolink%3E/basics-play" target="_blank">Gameplay Basics</a></li>
