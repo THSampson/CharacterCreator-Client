@@ -1,0 +1,20 @@
+.createMain{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Libre Baskerville', serif;
+    opacity: .9;
+
+}
+.createForm{
+    /* border: solid black;
+    border-radius:10px; */
+    padding: 5px;
+    
+}
+.createForm input{
+    font-weight: bold;
+}
+.close{
+    float: right;
+    width: 15%;
+}

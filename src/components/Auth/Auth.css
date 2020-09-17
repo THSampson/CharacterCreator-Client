@@ -6,3 +6,18 @@
 Button {
     margin: 5px;
 }
+
+.div{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: transparent;
+    border: solid 3px black;
+    margin-top: 5rem;
+    font-weight: bold;
+    font-family: 'Libre Baskerville', serif;
+    opacity: .9;
+    font-size: larger;
+    border-radius: 10px;
+}
+

@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
 import Auth from './components/Auth/Auth';
-import CharaIndex from './components/characterFunctionality/CharaIndex';
-
-
+// import CharaIndex from './components/characterFunctionality/CharaIndex';
+import Sidebar from './components/Navbar/Sidebar';
+// import Navbar from './components/Navbar/Navbar'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -28,14 +28,15 @@ function App() {
 
  
   const viewToggle = () => {
-    return (sessionToken === localStorage.getItem('token') ? <CharaIndex token={sessionToken} /> 
+    return (sessionToken === localStorage.getItem('token') ? <Sidebar token={sessionToken} setSessionToken={setSessionToken}/> 
     : <Auth updateToken={updateToken}/>)
-
   }
 
   return (
     <div className="App">
-      <div className="mainDiv">
+      <div>
+      <h1 className="title">Welcome to Character Cache!</h1>
+      <p>A place to store characters for your next roleplay, novel, or whatever you may need.</p>
         {viewToggle()}
        </div>
     </div>
