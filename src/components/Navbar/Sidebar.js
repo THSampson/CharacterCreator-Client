@@ -12,7 +12,7 @@ const Sidebar = (props) => {
         <div className="sidebar">
             <div className="sidebar-list-styling">
                 <nav>
-                    <h3 className="navFont">Navigation</h3>
+                    <h2 className="navFont">Navigation</h2>
                 <ul className="sidebar-list list-unstyled">
                     <li><Link to="/"></Link></li>
                     <li><Link to="/main">Characters</Link></li>
