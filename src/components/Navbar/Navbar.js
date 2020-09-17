@@ -11,7 +11,7 @@ const NavbarComponent = (props) => {
     return (
         <div className="random">
 
-            <Navbar className="navClass" color="danger" light expand="md">
+            <Navbar className="navClass" light expand="md">
             <Nav pills id="navbar" className="ml-auto">
                 <NavItem onClick={createToggleClick}>
                     <NavLink href="">Create</NavLink>

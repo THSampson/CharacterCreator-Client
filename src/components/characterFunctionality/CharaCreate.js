@@ -38,10 +38,10 @@ const CharaCreate = (props) => {
     }
     const closeBtn = <Button className="close" onClick={props.createToggle}>X</Button>
 return(
-    {<h3>Create A New Character</h3>
+    <>
     <Form onSubmit={handleSubmit}>
     <Modal isOpen={props.modal} toggle={props.createToggle} className="createMain">
-    <ModalHeader toggle={props.createToggle} close={closeBtn}>Create A New Character</ModalHeader>
+    <ModalHeader toggle={props.createToggle} close={closeBtn}></ModalHeader>
     <ModalBody>
     <Form onSubmit={handleSubmit} className="createForm">
     <FormGroup>
@@ -64,6 +64,8 @@ return(
     </Form>
     </ModalBody>
     </Modal>
+    </Form>
+    </>
 
 )
 }

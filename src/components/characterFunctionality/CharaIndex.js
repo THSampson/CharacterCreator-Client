@@ -64,7 +64,7 @@ const CharaIndex = (props) => {
             updateToggle={updateToggle}
             fetchCharacters={fetchCharacters}
             token={props.token}
-          /> : <h1>Create a New Character</h1>}
+          /> : ''}
         </Col>
         {updateActive ? 
           <CharaEdit

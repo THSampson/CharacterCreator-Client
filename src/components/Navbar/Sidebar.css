@@ -1,27 +1,25 @@
 .sidebar {
     display: flex;
-    position: fixed;
     background-color: transparent;
     margin-top: 5rem;
     font-family: 'Libre Baskerville', serif;
     font-size: 25px;
     color: black;
     text-align: left;
-    left: 15rem;
-    margin-right: 100px;
-    overflow: visible;
+   
     
 }
 
 ul {
     list-style-type: none;
-    font-weight: bold;
+    font-weight: bold; 
+      
 }
 
 .sidebar-list-styling {
-   float: left;
-    width: 100%;
     background-color: transparent;
+    margin-top: 15rem;
+    margin-left: 15rem;
    
 }
 
@@ -34,6 +32,7 @@ ul {
     flex: 1;
     padding: 0px;
 }
+
 a:link {
     text-decoration: none;
     color: black;
