@@ -100,9 +100,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ![Negative Age](./src/Assets/ReadmeScreenshots/AgeValidation1.JPG)
 ![Cant Go Below Zero](./src/Assets/ReadmeScreenshots/AgeValidation2.JPG)
 ![Only Integers](./src/Assets/ReadmeScreenshots/AgeValidation3.JPG)
-![Create Your Character](./src/Assets/ReadmeScreenshots/FillOutCharacter_Click_Create.png)
+![Create Your Character](./src/Assets/ReadmeScreenshots/FillOutCharacter_ClickCreate.png)
 ### Characters then show up in the Character List
-![New Character](./src/Assets/ReadmeScreenshots/NewCharacter.JPG)
+![New Character](./src/Assets/ReadmeScreenshots/YourNewCharacter.JPG)
 ### Users can update any part of their character simply by selecting the Update button
 ![Click Update](./src/Assets/ReadmeScreenshots/ClickUpdate.png)
 ![Default Edit](./src/Assets/ReadmeScreenshots/DefaultEditModal.JPG)
