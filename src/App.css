@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Enchanted Land';
+  src: url('./Enchanted\ Land.otf');
+}
+
+.title {
+  text-align: center;
+  color: black;
+  font-family: 'Enchanted Land';
+  font-size: 100px;
+}
+
 .App {
     text-align: center;  
     color: black;

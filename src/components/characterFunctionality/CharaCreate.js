@@ -39,7 +39,6 @@ const CharaCreate = (props) => {
     const closeBtn = <Button className="close" onClick={props.createToggle}>X</Button>
 return(
     <>
-    <Form onSubmit={handleSubmit}>
     <Modal isOpen={props.modal} toggle={props.createToggle} className="createMain">
     <ModalHeader toggle={props.createToggle} close={closeBtn}>Create</ModalHeader>
     <ModalBody>
@@ -64,7 +63,6 @@ return(
     </Form>
     </ModalBody>
     </Modal>
-    </Form>
     </>
 
 )
