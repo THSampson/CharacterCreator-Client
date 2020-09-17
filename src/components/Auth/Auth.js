@@ -37,7 +37,7 @@ const Auth = (props) => {
         
     const userFunction = (event) => {
         event.preventDefault();
-        let url = signIn ? `http://localhost:3000/user/signin` : `http://localhost:3000/user/signup`
+        let url = signIn ? `${APIURL}/user/signin` : `${APIURL}/user/signup`
         let userObject = {
             fName: firstName,
             lName: lastName,

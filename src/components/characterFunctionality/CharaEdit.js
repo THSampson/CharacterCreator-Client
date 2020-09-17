@@ -11,7 +11,7 @@ const CharaEdit = (props) => {
      
     const charaUpdate= (event) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/chara/${props.charaToUpdate.id}`, {
+        fetch(`${APIURL}/chara/${props.charaToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({name: editName, species: editSpecies, ageInYears: editAge, description: editDescription}),
             headers: new Headers({

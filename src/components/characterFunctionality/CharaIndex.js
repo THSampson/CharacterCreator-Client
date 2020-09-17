@@ -16,7 +16,7 @@ const CharaIndex = (props) => {
   const [modal, setModal] = useState(false);
 
   const fetchCharacters = () => {
-    fetch(`http://localhost:3000/chara`, {
+    fetch(`${APIURL}/chara`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',

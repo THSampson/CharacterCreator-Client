@@ -1,13 +1,10 @@
 #navbar {
     display: flex;
     justify-content: flex-end;
-    /* background-color: #e69721; */
     font-weight: bold;
     font-family: 'Libre Baskerville', serif;
 }
 
 .random{
     background-color: transparent;
-    
-    
 }

@@ -10,7 +10,6 @@ const NavbarComponent = (props) => {
     }
     return (
         <div className="random">
-
             <Navbar className="navClass" light expand="md">
             <Nav pills id="navbar" className="ml-auto">
                 <NavItem onClick={createToggleClick}>

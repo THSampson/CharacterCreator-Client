@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
 import Auth from './components/Auth/Auth';
-import CharaIndex from './components/characterFunctionality/CharaIndex';
+// import CharaIndex from './components/characterFunctionality/CharaIndex';
 import Sidebar from './components/Navbar/Sidebar';
-import Navbar from './components/Navbar/Navbar'
+// import Navbar from './components/Navbar/Navbar'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -34,9 +34,9 @@ function App() {
 
   return (
     <div className="App">
+      <div>
       <h1>Character Cache</h1>
       <p>A place to store characters for your next roleplay, novel, or whatever you may need.</p>
-      <div>
         {viewToggle()}
        </div>
     </div>
