@@ -38,5 +38,7 @@ return (
            {charaMapper()}
         </div>
     </div>
+)
+}
 
 export default CharaTable;

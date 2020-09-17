@@ -34,7 +34,8 @@ function App() {
 
   return (
     <div className="App">
-      <div className="mainDiv">
+      <h1>Welcome to Your Character</h1>
+      <div>
         {viewToggle()}
        </div>
     </div>
