@@ -23,8 +23,8 @@ const CharaTable = (props) => {
                     <CardText>{chara.ageInYears}</CardText>
                     <CardText>{chara.description}</CardText>
                      <CardFooter>
-                        <Button color="warning" onClick={() => {props.editUpdateChara(chara); props.updateToggle()}}>Update</Button>
-                        <Button color="danger" onClick={() => {if(window.confirm(`Are you sure you wish to delete ${chara.name}?`))deleteCharacter(chara)}}>Delete</Button>
+                        <Button color="outline-success" onClick={() => {props.editUpdateChara(chara); props.updateToggle()}}>Update</Button>
+                        <Button color="outline-danger" onClick={() => {if(window.confirm(`Are you sure you wish to delete ${chara.name}?`))deleteCharacter(chara)}}>Delete</Button>
                     </CardFooter>
                 </Card>
             )

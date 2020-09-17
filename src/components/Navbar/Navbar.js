@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavItem, NavLink, Navbar } from 'reactstrap'
+import { Nav, NavItem, NavLink, Navbar, Button } from 'reactstrap'
 import Signout from './Signout/Signout';
 import './Navbar.css'
 
@@ -14,10 +14,10 @@ const NavbarComponent = (props) => {
             <Navbar className="navClass" light expand="md">
             <Nav pills id="navbar" className="ml-auto">
                 <NavItem onClick={createToggleClick}>
-                    <NavLink href="">Create</NavLink>
+                    <Button color="outline-dark">Create</Button>
                 </NavItem>
                 <NavItem onClick={() => {props.setSessionToken(''); localStorage.clear()}}>
-                    <NavLink href="">Sign Out</NavLink>
+                    <Button color="outline-dark">Sign Out</Button>
                 </NavItem>
             </Nav>
             </Navbar>
