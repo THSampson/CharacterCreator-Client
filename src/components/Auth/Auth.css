@@ -10,11 +10,10 @@ Button {
 .div{
     display: inline-block;
     margin: 0 auto;
-    padding: 5px;
+    padding: 1px;
     background-color: transparent;
     border: solid black;
-    border-radius:10px;
-    margin-top: 10em;
+    margin-top: 5em;
     font-weight: bold;
     font-family: 'Libre Baskerville', serif;
     /* opacity: .9; */
