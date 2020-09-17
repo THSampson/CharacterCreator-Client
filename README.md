@@ -72,22 +72,54 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ## Landing Page
 ### The first thing a user sees on the application is the signin. If they already have an account, they can log in. If not, they can create a new account.
 ![Default SignIn](./src/Assets/ReadmeScreenshots/DefaultLoginScreen.JPG)
-![Click SignUp](./Assets/ReadmeScreenshots/ClickSignUp.png)
+![Click SignUp](./src/Assets/ReadmeScreenshots/ClickSignUp.png)
 ### When signing in, a user's password must be at least five characters, otherwise the Sign In button will be disabled
-![Invalid Password Signin](./Assets/ReadmeScreenshots/LoginPasswordValidation.JPG)
-![Valid Password Signin](./Assets/ReadmeScreenshots/SignInButtonAvailable.JPG)
+![Invalid Password Signin](./src/Assets/ReadmeScreenshots/LoginPasswordValidation.JPG)
+![Valid Password Signin](./src/Assets/ReadmeScreenshots/SignInButtonAvailable.JPG)
 
 ## SignUp
 ### After clicking the SignUp button, users are greeted by a new screen. They need to input first and last Name, an email, and a password of at least five characters.
-![Default SignUp](./Assets/ReadmeScreenshots/DefaultSignUp.JPG)
+![Default SignUp](./src/Assets/ReadmeScreenshots/DefaultSignUp.JPG)
 ### Email addresses must include an @ symbol and text after it.
-![No At Symbol](./Assets/ReadmeScreenshots/EmailValidation1.JPG)
-![No Text Following At](./Assets/ReadmeScreenshots/EmailValidation2.JPG)
+![No At Symbol](./src/Assets/ReadmeScreenshots/EmailValidation1.JPG)
+![No Text Following At](./src/Assets/ReadmeScreenshots/EmailValidation2.JPG)
 ### Users are unable to create an account if the password is less than 5 characters
-![Invalid Password SignUp](./Assets/ReadmeScreenshots/InvalidPassword.JPG)
+![Invalid Password SignUp](./src/Assets/ReadmeScreenshots/InvalidPassword.JPG)
 ### Once all the information is valid, users can click the Create Account button
-![Create Account](./Assets/ReadmeScreenshots/CreateAccount.png)
+![Create Account](./src/Assets/ReadmeScreenshots/CreateAccount.png)
 
 ## Characters
 ### Once logged in, a user will be shown the character screen. If they have existing characters, those will show up, otherwise there will be an empty space.
-![Existing Characters](./Assets/ReadmeScreenshots/Default)
+![Existing Characters](./src/Assets/ReadmeScreenshots/Login_ExistingCharacters.JPG)
+![No Characters](./src/Assets/ReadmeScreenshots/Login_NoCharacters.JPG)
+### To create a character, one must simply click the Create button
+![Create Character](./src/Assets/ReadmeScreenshots/ClickCreate.png)
+![Create Modal](./src/Assets/ReadmeScreenshots/DefaultCreateModal.JPG)
+### Characters must have a name, species, age (a positive integer value), and a description
+![Negative Age](./src/Assets/ReadmeScreenshots/AgeValidation1.JPG)
+![Cant Go Below Zero](./src/Assets/ReadmeScreenshots/AgeValidation2.JPG)
+![Only Integers](./src/Assets/ReadmeScreenshots/AgeValidation3.JPG)
+![Create Your Character](./src/Assets/ReadmeScreenshots/FillOutCharacter_ClickCreate.png)
+### Characters then show up in the Character List
+![New Character](./src/Assets/ReadmeScreenshots/YourNewCharacter.JPG)
+### Users can update any part of their character simply by selecting the Update button
+![Click Update](./src/Assets/ReadmeScreenshots/ClickUpdate.png)
+![Default Edit](./src/Assets/ReadmeScreenshots/DefaultEditModal.JPG)
+![Fill Out Update](./src/Assets/ReadmeScreenshots/FillOutModal_ClickUpdate.png)
+![Updated Character](./src/Assets/ReadmeScreenshots/UpdatedCharacter.JPG)
+### Users are able to remove characters by clicking the Delete button. There is also a check to make sure they truly wish to delete that character
+![Click Delete](./src/Assets/ReadmeScreenshots/ClickDelete.png)
+![Are You Sure](./src/Assets/ReadmeScreenshots/AreYouSureDelete.JPG)
+![Deleted Character](./src/Assets/ReadmeScreenshots/DeletedCharacter.JPG)
+### If users decide they don't really want to create or update the character they are currently working on, clicking the x at the top right of either modal will return them to the character page. 
+![Close Modal](./src/Assets/ReadmeScreenshots/ClickXToCloseModal.png)
+
+## Resources
+### The application also includes helpful resources. Users can find information on name generators and learn about Dungeons and Dragons by clicking one of the links in the Navigation sidebar
+![Name Resources](./src/Assets/ReadmeScreenshots/NameResources.png)
+![DND Resources](./src/Assets/ReadmeScreenshots/DNDResources.png)
+
+## SignOut
+### Users also have the ability to sign out by clicking the button appropriately named Sign Out. Doing so will return them to the login screen.
+![Click SignOut](./src/Assets/ReadmeScreenshots/ClickSignOut.png)
+![SignIn Screen](./src/Assets/ReadmeScreenshots/DefaultLoginScreen.JPG)
