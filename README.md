@@ -71,7 +71,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## Landing Page
 ### The first thing a user sees on the application is the signin. If they already have an account, they can log in. If not, they can create a new account.
-![Default SignIn](./Assets/ReadmeScreenshots/DefaultLoginScreen.JPG)
+![Default SignIn]('./Assets/ReadmeScreenshots/DefaultLoginScreen.JPG')
 ![Click SignUp](./Assets/ReadmeScreenshots/ClickSignUp.png)
 ### When signing in, a user's password must be at least five characters, otherwise the Sign In button will be disabled
 ![Invalid Password Signin](./Assets/ReadmeScreenshots/LoginPasswordValidation.JPG)
