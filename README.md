@@ -79,6 +79,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## SignUp
 ### After clicking the SignUp button, users are greeted by a new screen. They need to input first and last Name, an email, and a password of at least five characters.
+![Click SignUp](./src/Assets/ReadmeScreenshots/ClickSignUp.png)
 ![Default SignUp](./src/Assets/ReadmeScreenshots/DefaultSignUp.JPG)
 ### Email addresses must include an @ symbol and text after it.
 ![No At Symbol](./src/Assets/ReadmeScreenshots/EmailValidation1.JPG)
